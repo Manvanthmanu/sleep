@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{% static './maths/Analyze.css' %}">
+    <title>Analyze</title>
+</head>
+<body>
+   <header class="Navbar">
+
+        <div class="logo">
+            <h1>SleepAnalysis</h1>
+        </div>
+        <div class="navbuttons">
+            <button class="btn btn1">Home</button>
+            <button class="btn btn2">Compare</button>
+        </div>
+
+   </header>
+
+   <section class="section-1">
+        <div class="uploadFile">
+            <form action="calculations" method="POST" autocomplete="off" enctype="multipart/form-data">  {% csrf_token %}
+            <p>Upload file</p>
+            <div>
+                <input type="file" id="upload" name="myFile" style="display: none;">
+                <label for="upload" class="upload-btn">Select files</label>
+            </div>
+            <button><span>&#8682; Upload</span><span class="uploading">Uploading.......</span></button>
+            <button class="cancle">Cancle upload</button>
+            <div class="pr">
+                <strong>
+                    <h4 class="ex">PDF</h4>
+                    <h5 class="size">2.5kb</h5>
+                </strong>
+                <progress min="0" max="100" value="0" style="margin-bottom: 20px;"></progress>
+                <span class="progress-indicator" style="margin-top: 20px;"></span>
+            </div>
+            <button type="submit">analyze</button>
+        </form>
+        </div>
+    <!-- download file -->
+    <h1 style="color: white;">download</h1>
+   </section>
+   <script src="{% static './maths/index.js' %}"></script>
+</body>
+</html>
